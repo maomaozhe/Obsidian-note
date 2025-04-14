@@ -1,0 +1,21 @@
+---
+tags: [leetcode, 算法, 动态规划]
+created: <% tp.date.now("YYYY-MM-DD") %>
+source: 
+---
+
+
+# <%= tp.file.title %>
+
+## 📘 题目描述
+（粘贴题目描述或总结）
+
+## 💡 思路分析
+
+## 🧠 解法（核心思想）
+
+## ✅ Code（Java/C++）
+
+## 🧪 测试结果与复杂度分析
+
+## 🔄 反思与易错点
