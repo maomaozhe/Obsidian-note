@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cs-learn/Templates/daily-review.md",
+                "file": "cs-learn/02-计算机课程/计算机网络/clash 等 vpn 原理.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "daily-review"
+              "title": "clash 等 vpn 原理"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#动态规划",
+                "query": "tag:动态规划",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -126,7 +126,7 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
+                "useHierarchy": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -140,23 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs-learn/Templates/daily-review.md",
+                "file": "cs-learn/00-每日追踪系统/2025-04-17 .md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of daily-review"
-            }
-          },
-          {
-            "id": "a1a0bb7530f21978",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "title": "Outline of 2025-04-17"
             }
           },
           {
@@ -168,13 +158,23 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "9427f59f77ccd8d5",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,33 +192,46 @@
   },
   "active": "1fb5db2b07a3246e",
   "lastOpenFiles": [
-    "Untitled Kanban 1.md",
-    "cs-learn/Templates/daily-review.md",
-    "cs-learn/00-每日追踪系统/2025-04-12.md",
-    "cs-learn/00-每日追踪系统/2025-04-10 Thu.md",
-    "cs-learn/01-leetcode/DP/647-回文子串.md",
-    "Untitled Kanban.md",
-    "Untitled",
-    "cs-learn/03-项目开发学习/MYDB 1.md",
-    "cs-learn/Templates/Leetcode-template.md",
-    "cs-learn/00-每日追踪系统/2025-04-11.md",
-    "cs-learn/Welcome.md",
-    "cs-learn/02-计算机课程/计算机网络/clash 等 vpn 原理.md",
-    "cs-learn/01-leetcode/二叉树/96-不同的二叉搜索树.md",
+    "cs-learn/work-flow.md",
+    "cs-learn/01-leetcode/技巧/136 260 137只出现一次的数字.md",
+    "cs-learn/00-每日追踪系统/2025-04-21 .md",
+    "cs-learn/01-leetcode/技巧",
+    "cs-learn/00-每日追踪系统/2025-04-17 .md",
+    "cs-learn/04-计算机八股文/每日面经/01-4.21 云智一面.md",
+    "cs-learn/04-计算机八股文/八股文整理",
     "cs-learn/01-leetcode/递归 recursion.md",
+    "cs-learn/01-leetcode/146.LRU缓存.md",
+    "cs-learn/00-每日追踪系统/2025-04-12.md",
+    "cs-learn/00-每日追踪系统/2025-04-15.md",
+    "cs-learn/05-技术学习笔记/MCP (Model Context Protocol).md",
+    "cs-learn/04-计算机八股文/每日面经",
+    "cs-learn/05-技术学习笔记/OAuth 等鉴权.md",
+    "cs-learn/99-resource/pictures/Pasted image 20250418003342.png",
+    "cs-learn/05-技术学习笔记/RAG, 知识库？.md",
+    "cs-learn/05-技术学习笔记/Agent？.md",
+    "cs-learn/99-resource/pictures/Pasted image 20250418002154.jpg",
+    "cs-learn/03-项目开发学习/MYDB3 数据页的缓存与管理.md",
+    "cs-learn/05-技术学习笔记",
+    "cs-learn/03-项目开发学习/MYDB 2.引用计数缓存框架和共享内存数组.md",
+    "cs-learn/Templates/文档框架.md",
+    "2025-04.md",
+    "cs-learn/00-每日追踪系统/Untitled.md",
+    "cs-learn/01-leetcode/暴力搜索/241. 为运算表达式设计优先级.md",
+    "cs-learn/01-leetcode/暴力搜索",
+    "cs-learn/03-项目开发学习/MYDB 1.md",
+    "cs-learn/00-每日追踪系统/2025-04-14.md",
+    "cs-learn/99-resource/pictures/Pasted image 20250415090551.png",
     "cs-learn/01-leetcode/二叉树/236. 二叉树的最近公共祖先.md",
-    "cs-learn/01-leetcode/Untitled",
+    "cs-learn/01-leetcode/二叉树/124. 二叉树中的最大路径和.md",
+    "cs-learn/01-leetcode/二叉树/96-不同的二叉搜索树.md",
+    "cs-learn/00-每日追踪系统/2025-04-10 Thu.md",
+    "cs-learn/00-每日追踪系统/2025-04-11.md",
+    "Untitled",
     "cs-learn/99-resource/pictures/Pasted image 20250411144255.png",
     "cs-learn/99-resource/pictures",
     "cs-learn/99-resource",
     "cs-learn/02-计算机课程/MySQL",
     "cs-learn/02-计算机课程/计算机网络",
-    "cs-learn/99-resource/pictures/Pasted image 20250411103225.png",
-    "cs-learn/01-leetcode/二叉树",
-    "2025-04-11.md",
-    "2025-04-10.md",
-    "cs-learn/Templates",
-    "cs-learn/01-leetcode/DP",
-    "cs-learn/04-计算机八股文"
+    "cs-learn/99-resource/pictures/Pasted image 20250411103225.png"
   ]
 }

@@ -3,7 +3,7 @@
   "hasMigratedDailyNoteSettings": false,
   "hasMigratedWeeklyNoteSettings": false,
   "daily": {
-    "format": "",
+    "format": "YYYY-MM-DD ",
     "template": "cs-learn/Templates/daily-review.md",
     "folder": "cs-learn/00-每日追踪系统",
     "enabled": true
