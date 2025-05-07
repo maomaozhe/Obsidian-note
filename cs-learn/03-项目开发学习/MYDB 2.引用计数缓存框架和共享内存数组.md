@@ -3,7 +3,7 @@
 
 > DM 直接管理数据库 DB 文件和日志文件。DM 的主要职责有：1) 分页管理 DB 文件，并进行缓存；2) 管理日志文件，保证在发生错误时可以根据日志进行恢复；3) 抽象 DB 文件为 DataItem 供上层模块使用，并提供缓存。
 
-DM 的功能其实可以归纳为两点：上层模块和文件系统之间的一个抽象层，向下直接读写文件，向上提供数据的包装；另外就是**日志功能**。
+**DM 的功能其实可以归纳为两点：上层模块和文件系统之间的一个抽象层，向下直接读写文件，向上提供数据的包装；另外就是日志功能。**
 
 可以注意到，无论是向上还是向下，DM 都提供了一个**缓存**的功能，用内存操作来保证效率。
 
@@ -36,7 +36,7 @@ LRU
     
 4. **抽象方法**：`getForCache()` 与 `releaseForCache()` 分别在加载与释放资源时调用，交由子类实现。
 
-我们来看看主要的几个方法
+
 
 ### 关键成员变量分析
 
@@ -46,7 +46,7 @@ private HashMap<Long, Integer> references;  // 缓存项的引用计数
 private HashMap<Long, Boolean> getting;     // 标记正在被获取的 key，避免并发重复加载
 private int maxResource;               // 最大缓存容量
 private int count = 0;                 // 当前缓存资源数量
-private Lock lock;                     // 互斥锁，保证线程安全
+private Lock lock;                     // 互斥锁，保证cache, getting references...线程安全
 ```
 
 这些成员变量共同维护缓存状态与线程同步，采用手动控制而非高层并发容器，显示出代码意在演示底层细节。
@@ -61,9 +61,29 @@ count 可以实现容量控制，当超过maxResource， 就抛出异常
 #### 1.get(long key) ： 获取缓存对象
 获取缓存中的资源，若不存在则通过抽象方法加载，流程较为复杂：
 
+特别是实现细节中，while的设计，不断的尝试从缓存中获取，之后，检查其他线程是否正在从数据源获取这个资源，如果有，就sleep，等等再来
+
+>在 `get` 方法中，如果别的线程正在占用资源（比如在 `lock.lock()` 处锁已经被其他线程持有），  
+那么当前线程不是应该"获取锁失败"吗？  
+那为什么还能进入到 `if (getting.containsKey(key))` 这个判断内部？
+
+ChatGPT 把我的问题表现得很清楚：![[Pasted image 20250427154618.png]]
+**拿到锁**，只意味着**现在我有权力独占访问共享资源（`getting`）**，  
+**但不能推断 `getting` 的状态一定是“没有线程占用资源”**。
+
+拿到锁，不意味着 key 已经加载完成，不意味着getting一定被清除，不代表别的线程的业务操作已经完成！
+
+核心: 锁保护的是访问，不是业务完成！
+
+>在并发缓存系统中，即便获得了互斥锁，线程仍需要校验资源状态（如`getting`标志位）， 因为互斥锁保障的是临界区访问的一致性，而非业务状态的一致性。 资源标记与资源真正可用之间存在异步性，需要额外的重试与等待策略来弥补这种时序差异。
+
+一开始对什么时候加锁解锁搞不明白，阅读代码后分析发现，锁是为了保证一些成员变量的安全，所以应当是要访问/操作他们之前保证获取锁。
+
 
 
 #### 2.release(long key) : 释放缓存引用
+
+将ref -- 知道为 0 时在cio
 
 #### 3. close(): 关闭缓存并写回所有资源
 
@@ -84,5 +104,14 @@ ReentrantLock 是 Java 并发包 `java.util.concurrent.locks` 提供的一种可
 
 
 
-
+```java
+public class SubArray { 
+	public byte[] raw; 
+	public int start; 
+	public int end; 
+	public SubArray(byte[] raw, int start, int end) { 
+		this.raw = raw;
+		this.start = start;
+		this.end = end; } }
+```
 
